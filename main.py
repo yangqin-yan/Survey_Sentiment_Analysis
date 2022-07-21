@@ -1,11 +1,22 @@
 from transformers import pipeline
 import pandas as pd
+import argparse
 
 from get_sentiment import get_sentiment
 
+# Instantiate the parser
+parser = argparse.ArgumentParser(description='Optional app description')
+
+# Required positional argument
+parser.add_argument('file_name', type=str,
+                    help='Input the name of the file to do sentiment analysis')
+
+# parse the arguments
+args = parser.parse_args()
+
 # read the survey response
 # Change the name in the function pd.read_csv() to change the file to read
-survey = pd.read_csv("Heidelberg_response.csv")
+survey = pd.read_csv(args.file_name)
 survey = survey[2:].reset_index()
 
 # sentiment analysis pipeline
