@@ -5,6 +5,6 @@ Usage of the Speech2Text transcription:
 
 Run the following command
 
-'''
+```
 python speech2text_demo.py <file_name>
-'''
+```
