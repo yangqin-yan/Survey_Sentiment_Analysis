@@ -13,6 +13,13 @@ args = parser.parse_args()
 
 # speech2text pipeline
 pipe = pipeline("automatic-speech-recognition", "facebook/wav2vec2-base-960h")
+
+# Note: The model doesn't support m4a format
 result = pipe(args.file_name)
 
+# print the transcription result
 print(result)
+
+# store the text into a text file
+with open('transcription.txt', 'w') as f:
+    f.write(result)
